@@ -6,6 +6,7 @@ let windowHeight = window.innerHeight;
 
 const app = new PIXI.Application({
     view: canvas,
+    backgroundColor: 0x2980b9,
     width: windowWidth,
     height: windowHeight,
     resolution: window.devicePixelRatio,
@@ -19,8 +20,8 @@ window.addEventListener("resize", () =>{
     app.renderer.resize(windowWidth, windowHeight);
 });
 
-let vShader = vertShader.innerHTML;
-let fShader = fragShader.innerHTML;
+let vShader = vertShader;
+let fShader = perlinShader;
 let uniforms = {
     delta: 0,
     perlin: PIXI.Texture.from("https://imgs.search.brave.com/sksLJoDCQW0RHsKZKmH6UW5dUbikM3TcnX8zPfiID0M/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLnN0/YWNrLmltZ3VyLmNv/bS9pMDB5eC5wbmc")
