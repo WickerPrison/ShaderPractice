@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+}
+
+canvas{
+    display: block;
+    background-color: blue;
+    width: 50%;
+    height: 50%;
+    margin-left: auto;
+    border: 1em var(--mainPurple) solid;
+}
+
+input{
+    display: block;
+}
+
+#control-panel{
+    position: absolute;
+    left: 0;
+    padding-left: 2em;
+}
+
+#apply-button{
+    display: block;
+}

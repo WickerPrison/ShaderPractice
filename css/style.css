@@ -1,0 +1,20 @@
+:root{
+    --mainPurple: #610345;
+    --white: #DBE9EE;
+}
+
+body{
+    margin: 0;
+    background-color: var(--white);
+}
+
+header{
+    background-color: var(--mainPurple);
+    color: var(--white);
+    padding: 1em;
+}
+
+h1{
+    margin: 0;
+    font-size: 3em;
+}

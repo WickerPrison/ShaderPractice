@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shader Practice</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/metaballs.css">
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Shaders by Jacob Davis</h1>
+        </header>
+    
+        <div id="control-panel">
+            <h2>Metaball Simulation Shader</h2>
+            <label for="circle-num">Number of Metaballs:</label>
+            <input id="circle-num" type="range" min="1" max="50" value="10" class="slider">
+            <label for="fuzzyness">Metaball Hardness:</label>
+            <input id="fuzzyness" type="range" min="15" max="210" value="15" class="slider" step="15">
+            <label for="size">Metaball Size:</label>
+            <input id="size" type="range" min="0.001" max="0.6" value="0.3" class="slider" step="0.001">
+            <label for="force">Mouse Cursor Force:</label>
+            <input id="force" type="range" min="0" max="0.001" value="0.0005" class="slider" step="0.0001">
+            <label for="ball-color">Metaball Color:</label>
+            <input type="color" id="ball-color" value="#000000">
+            <label for="background-color">Background Color:</label>
+            <input type="color" id="background-color" value="#FFFFFF">
+            <button id="apply-button">Apply</button>
+        </div>
+
+        <canvas id="myCanvas"></canvas>
+
+    </main>
+
+    <script src="/Shaders/standardVert.js"></script>
+    <script src="/Shaders/metaballShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pixi.js@7.x/dist/pixi.min.js"></script>
+    <script src="/js/metaball.js"></script>
+</body>
+</html>
