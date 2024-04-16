@@ -1,47 +1,37 @@
-const canvas = document.getElementById("myCanvas");
 const circleNumElm = document.getElementById("circle-num");
 const fuzzynessElm = document.getElementById("fuzzyness");
 const sizeElm = document.getElementById("size");
 const ballColorElm = document.getElementById("ball-color");
 const backgroundColorElm = document.getElementById("background-color");
 const forceElm = document.getElementById("force");
-
-let windowWidth = window.innerWidth;
-let windowHeight = window.innerHeight;
-
+const frictionElm = document.getElementById("friction");
+const gravityElm = document.getElementById("gravity");
+const bouncinessElm = document.getElementById("bounciness");
 
 const app = new PIXI.Application({
-    view: canvas,
     backgroundColor: 0x2980b9,
-    // width: windowWidth,
-    // height: windowHeight,
-    //resolution: window.devicePixelRatio,
-    //autoDensity: true
 });
 
-window.addEventListener("resize", () =>{
-    windowWidth = window.innerWidth;
-    windowHeight = window.innerHeight;
+const frame = document.getElementById("frame");
+frame.appendChild(app.view);
+const canvas = frame.querySelector("canvas");
 
-    app.renderer.resize(windowWidth, windowHeight);
+window.addEventListener("resize", () =>{
+    const parent = app.view.parentNode;
+    app.renderer.resize(parent.clientWidth, parent.clientHeight);
+    img.width = parent.clientWidth;
+    img.height = parent.clientHeight;
 });
 
 let vShader = vertShader;
 let fShader = metaballShader;
-let uniforms = {
-    delta: 0,
-    perlin: PIXI.Texture.from("https://imgs.search.brave.com/sksLJoDCQW0RHsKZKmH6UW5dUbikM3TcnX8zPfiID0M/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLnN0/YWNrLmltZ3VyLmNv/bS9pMDB5eC5wbmc")
-};
+let uniforms = {};
 
 const myFilter = new PIXI.Filter(vShader, fShader, uniforms);
 
 const img = new PIXI.Sprite(PIXI.Texture.from(canvas));
 
-img.anchor.x = 0.5;
-img.anchor.y = 0.5;
 img.filters = [myFilter];
-
-canvas.filters = [myFilter];
 
 app.stage.addChild(img);
 
@@ -51,6 +41,9 @@ let circles = [];
 let velocities = [];
 let circleNum;
 let cursorForce;
+let friction;
+let gravity;
+let bounciness;
 
 function setUpMetaballs(){
     circles = [];
@@ -67,6 +60,9 @@ function setUpMetaballs(){
     cursorForce = forceElm.value;
     uniforms.ball_color = hexToRgb(ballColorElm.value);
     uniforms.background_color = hexToRgb(backgroundColorElm.value);
+    friction = Number(frictionElm.value);
+    gravity = Number(gravityElm.value);
+    bounciness = Number(bouncinessElm.value);
 }
 
 function hexToRgb(hex) {
@@ -82,24 +78,21 @@ setUpMetaballs();
 const mousePos = [];
 
 function animate(){
-    img.x = app.renderer.screen.width / 2;
-    img.y = app.renderer.screen.height / 2;
-
     for(let x = 0; x < circleNum * 3; x += 3){
         let y = x+1;
         let z = x + 2;
         if(circles[x] + circles[z] >= 1){
-            velocities[x] = -1 * Math.abs(velocities[x]);
+            velocities[x] = -1 * Math.abs(velocities[x]) * bounciness;
         }
         else if(circles[x] - circles[z] <=0){
-            velocities[x] = Math.abs(velocities[x]);
+            velocities[x] = Math.abs(velocities[x]) * bounciness;
         }
 
         if(circles[y] + circles[z] >= 1){
-            velocities[y] = -1 * Math.abs(velocities[y]);
+            velocities[y] = -1 * Math.abs(velocities[y]) * bounciness;
         }
         else if(circles[y] - circles[z] <=0){
-            velocities[y] = Math.abs(velocities[y]);
+            velocities[y] = Math.abs(velocities[y]) * bounciness;
         }
         
         if(mousePos[0] != undefined){
@@ -123,8 +116,10 @@ function animate(){
         circles[x] += velocities[x];
         circles[y] += velocities[y];
 
-        velocities[x] *= 0.999;
-        velocities[y] *= 0.999;
+        velocities[x] *= 1 - friction;
+        velocities[y] *= 1 - friction;
+
+        velocities[y] += gravity;
     }
 
     uniforms.circles = circles;
