@@ -1,4 +1,4 @@
-const perlinShader = `varying vec2 pos;
+const fragShader = `varying vec2 pos;
 uniform sampler2D uSampler;
 uniform sampler2D perlin;
 uniform float delta;

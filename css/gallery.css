@@ -1,0 +1,39 @@
+
+main{
+    display: flex;
+    position: relative;
+    margin: 1em 5%;
+    width: 90%;
+    height: 100%;
+    background-color: var(--white);
+}
+
+img{
+    border: 1em var(--mainPurple) solid;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#entry-template{
+    display: none;
+}
+
+.entry{
+    padding-top: 1em;
+    background-color: var(--mainPurple);
+    margin: 1em;
+    width: 400px;
+}
+
+.entry:hover{
+    cursor: pointer;
+}
+
+.entry:hover h2{
+    color: var(--lightOrange);
+}
+
+.entry h2{
+    color: var(--white);
+    margin: 0;
+}
