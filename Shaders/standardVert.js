@@ -1,3 +1,5 @@
+console.log("vert shader loaded");
+
 const vertShader = `attribute vec2 aVertexPosition;
 attribute vec2 aTextureCoord;
 
