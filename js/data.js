@@ -22,7 +22,7 @@ const data = [
     {
         name: "Dissolve Shader",
         link: "./viewShader.html",
-        preview: "./previews/SimpleWaterShader.gif",
+        preview: "./previews/DissolveShader.gif",
         vertShader: "standardVert.js",
         fragShader: "dissolveShader.js",
         textures: ["./textures/PerlinNoise.png",
