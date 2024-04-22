@@ -13,7 +13,7 @@ const data = [
     {
         name: "Stylized Water Shader",
         link: "./viewShader.html",
-        preview: "./previews/SimpleWaterShader.gif",
+        preview: "./previews/WaterShader.gif",
         vertShader: "standardVert.js",
         fragShader: "waterShader.js",
         textures: ["./textures/PerlinNoise.png"],
