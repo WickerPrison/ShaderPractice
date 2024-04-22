@@ -1,6 +1,8 @@
 const shaderData = data[sessionStorage.getItem("shaderIndex")];
 const fragLink = document.getElementById("frag-link");
 const vertLink = document.getElementById("vert-link");
+const title = document.getElementById('title');
+title.innerText = shaderData.name;
 fragLink.href = "https://github.com/WickerPrison/ShaderPractice/tree/main/Shaders/" + shaderData.fragShader;
 vertLink.href = "https://github.com/WickerPrison/ShaderPractice/tree/main/Shaders/" + shaderData.vertShader;
 
@@ -35,6 +37,12 @@ const setupShader = () =>{
     let uniforms = {
         delta: 0
     };
+
+    if(shaderData.textures){
+        for(let i = 0; i < shaderData.textures.length; i++){
+            uniforms["texture" + i] = PIXI.Texture.from(shaderData.textures[i]);
+        }
+    }
     
     const myFilter = new PIXI.Filter(vShader, fShader, uniforms);
     
