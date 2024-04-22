@@ -29,5 +29,13 @@ const data = [
         "https://imgs.search.brave.com/lDjpsAjrjDAYmqNkbEGWICuUsMeq3jzEPvWEo1NgJCI/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9zaG90/a2l0LmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyMS8wNy8x/eDEtYXNwZWN0LXJh/dGlvLWphaW1lLXJl/aW1lci5qcGc",
         "https://imgs.search.brave.com/fTUl9Lkgmr6U4XQkoO2VW2W4R3ZeXJDHkDbaJ229koE/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vZGlnaXRh/bC1waG90b2dyYXBo/eS1zY2hvb2wuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDEz/LzA3L2JzLTAzLmpw/Zz9zc2w9MQ"],
         type: ShaderType.VIEWSHADER
-    }
+    },
+    {
+        name: "Geometric Art Shader",
+        link: "./viewShader.html",
+        preview: "./previews/GeometricArtShader.gif",
+        vertShader: "standardVert.js",
+        fragShader: "geometricArtShader.js",
+        type: ShaderType.VIEWSHADER
+    },
 ]
