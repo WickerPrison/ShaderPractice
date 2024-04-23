@@ -11,12 +11,11 @@ const data = [
         type: ShaderType.OWNPAGE
     },
     {
-        name: "Stylized Water Shader",
+        name: "Geometric Art Shader",
         link: "./viewShader.html",
-        preview: "./previews/WaterShader.gif",
+        preview: "./previews/GeometricArtShader.gif",
         vertShader: "standardVert.js",
-        fragShader: "waterShader.js",
-        textures: ["./textures/PerlinNoise.png"],
+        fragShader: "geometricArtShader.js",
         type: ShaderType.VIEWSHADER
     },
     {
@@ -31,11 +30,12 @@ const data = [
         type: ShaderType.VIEWSHADER
     },
     {
-        name: "Geometric Art Shader",
+        name: "Stylized Water Shader",
         link: "./viewShader.html",
-        preview: "./previews/GeometricArtShader.gif",
+        preview: "./previews/WaterShader.gif",
         vertShader: "standardVert.js",
-        fragShader: "geometricArtShader.js",
+        fragShader: "waterShader.js",
+        textures: ["./textures/PerlinNoise.png"],
         type: ShaderType.VIEWSHADER
     },
 ]

@@ -12,9 +12,25 @@
         <h1>Shaders by Jacob Davis</h1>
     </header>
 
-    <main id="gallery">
+    <main>
+        <h3>Gallery</h3>
+        <div id="gallery">
+    
+        </div>
 
+        <div id="about">
+            <h3>What is a Shader?</h3>
+            <p>Shaders are scripts that run on the GPU instead of the CPU. Because the GPU works very differently than the CPU, shaders have their own programming languages. Two of the most common shader languages are openGL Shader Language (GLSL), and High-Level Shader Language (HLSL). A JavaScript library called WebGL allows shaders written in GLSL to be used in web applications.</p>
+            <p>The primary difference between writing code for the GPU and the CPU is that the GPU uses parallel processing. This fundamentally changes the way that code must be written as the same code must be run for every pixel in the shader simultaneously. Pixels cannot see what the other pixels are doing and different pixels cannot take different paths through the code without significant performance penalties. With these limitations comes the power of parallel processing. Code can be run for every pixel on the screen while maintaining high performance, allowing us to render dynamic, complex visuals with minimal performance cost.</p>
+            <p>For a more thorough explanation see <a href="https://thebookofshaders.com/01/">this page from the Book of Shaders</a></p>
+            <h4>Vert and Frag Shaders</h4>
+            <p>Every shader effect is made up of two shaders. The vertex shader, or vert shader, changes the vertices for the shape. 2D shaders, like the ones on this website typically use a very simple vert shader that merely passes information through it without making any changes. The fragment shader, or frag shader, changes every pixel on the shape it is applied to. This is where the complex effects are created using GLSL.</p>
+            <h4>My Shader Experience</h4>
+            <p>I first learned how to write shaders to create visual effects in video games. A few examples of those shaders can be found <a href="https://wickerprison.github.io/FullstackPortfolio/arcaneAudit.html#shaders">here</a>. The shader effects on this website are written in GLSL and rendered to the screen via WebGL using a library called PixiJS.</p>
+        </div>
     </main>
+
+    <footer></footer>
 
     <div id="entry-template" class="entry">
         <h2>Metaball Simulation</h2>

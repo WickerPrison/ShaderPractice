@@ -40,3 +40,9 @@ canvas{
 #links a:hover{
     color: var(--lightOrange);
 }
+
+@media screen and (max-width: 700px) {
+    #links a{
+        font-size: 1.2em;
+    }
+}
